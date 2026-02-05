@@ -12,7 +12,7 @@
     }
   },
   "bin": {
-    "solarman": "./dist/cli.js"
+    "solarman": "dist/cli.js"
   },
   "files": [
     "dist"
