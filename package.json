@@ -1,0 +1,51 @@
+{
+  "name": "solarmanv5",
+  "version": "1.0.0",
+  "description": "A TypeScript library for interacting with Solarman (IGEN-Tech) v5 based solar inverter data loggers",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "solarman": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "solarman",
+    "igen-tech",
+    "modbus",
+    "solar",
+    "inverter",
+    "solarmanv5",
+    "data-logger"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
+}
