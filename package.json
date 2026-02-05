@@ -33,8 +33,16 @@
     "solarmanv5",
     "data-logger"
   ],
-  "author": "",
+  "author": "Angelelz",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angelelz/solarmanv5.git"
+  },
+  "homepage": "https://github.com/Angelelz/solarmanv5#readme",
+  "bugs": {
+    "url": "https://github.com/Angelelz/solarmanv5/issues"
+  },
   "packageManager": "pnpm@10.18.0",
   "engines": {
     "node": ">=18"
