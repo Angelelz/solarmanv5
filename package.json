@@ -1,6 +1,6 @@
 {
   "name": "solarmanv5",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript library for interacting with Solarman (IGEN-Tech) v5 based solar inverter data loggers",
   "type": "module",
   "main": "./dist/index.js",
