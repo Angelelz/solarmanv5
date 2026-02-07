@@ -144,6 +144,16 @@ export class SolarmanV5 extends EventEmitter {
     this.v5ErrorCorrection = options.v5ErrorCorrection ?? false;
     this.autoReconnect = options.autoReconnect ?? false;
 
+    if (Number.isNaN(this.port)) {
+      throw new Error(`Invalid port: ${options.port}`);
+    }
+    if (Number.isNaN(this.mbSlaveId)) {
+      throw new Error(`Invalid mbSlaveId: ${options.mbSlaveId}`);
+    }
+    if (Number.isNaN(this.socketTimeout)) {
+      throw new Error(`Invalid socketTimeout: ${options.socketTimeout}`);
+    }
+
     if (options.logger) {
       this.log = options.logger;
     } else if (options.verbose) {

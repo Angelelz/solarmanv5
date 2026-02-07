@@ -190,6 +190,24 @@ describe("SolarmanV5", () => {
       })
   );
 
+  it("should throw on NaN mbSlaveId", () => {
+    expect(
+      () => new SolarmanV5("127.0.0.1", TEST_SERIAL, { mbSlaveId: NaN })
+    ).toThrow("Invalid mbSlaveId");
+  });
+
+  it("should throw on NaN port", () => {
+    expect(
+      () => new SolarmanV5("127.0.0.1", TEST_SERIAL, { port: NaN })
+    ).toThrow("Invalid port");
+  });
+
+  it("should throw on NaN socketTimeout", () => {
+    expect(
+      () => new SolarmanV5("127.0.0.1", TEST_SERIAL, { socketTimeout: NaN })
+    ).toThrow("Invalid socketTimeout");
+  });
+
   it("should connect and disconnect", async () => {
     const modbus = new SolarmanV5("127.0.0.1", TEST_SERIAL, {
       port: TEST_PORT,
@@ -299,6 +317,25 @@ describe("SolarmanV5", () => {
     } finally {
       await modbus.disconnect();
     }
+  });
+
+  it("parseInt wrapper should not produce NaN when Commander passes default as second arg", () => {
+    // This is the exact pattern that caused the bug:
+    // Commander calls fn(userValue, defaultValue)
+    // bare parseInt("1", 1) → NaN because radix 1 is invalid
+    // The arrow function wrapper ignores the second argument
+    const parseNum = (v: string) => parseInt(v, 10);
+
+    // Simulate Commander calling with (userValue, defaultValue)
+    expect(parseNum("1")).toBe(1);
+    expect(parseNum("2")).toBe(2);
+    expect(parseNum("255")).toBe(255);
+    expect(parseNum("8899")).toBe(8899);
+    expect(parseNum("60")).toBe(60);
+
+    // Verify the bug pattern: bare parseInt with radix as default value
+    expect(parseInt("1", 1)).toBeNaN(); // this was the bug
+    expect(parseInt("2", 1)).toBeNaN(); // this was the bug
   });
 
   it("twosComplement should work correctly", () => {

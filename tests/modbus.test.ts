@@ -57,6 +57,20 @@ describe("CRC-16/Modbus", () => {
 });
 
 describe("Modbus request frame builders", () => {
+  it("readHoldingRegisters encodes correct slave ID", () => {
+    const frame = readHoldingRegisters(2, 0x0100, 1);
+    expect(frame[0]).toBe(2); // slave ID at byte 0
+    expect(frame[1]).toBe(0x03); // function code
+    expect(verifyCrc(frame)).toBe(true);
+  });
+
+  it("readHoldingRegisters encodes slave ID 1 correctly", () => {
+    const frame = readHoldingRegisters(1, 0x0100, 1);
+    expect(frame[0]).toBe(1);
+    expect(frame[1]).toBe(0x03);
+    expect(verifyCrc(frame)).toBe(true);
+  });
+
   it("readHoldingRegisters builds correct frame (FC 3)", () => {
     const frame = readHoldingRegisters(1, 0x0003, 5);
     expect(frame[0]).toBe(1); // slave id

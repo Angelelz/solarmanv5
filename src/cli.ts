@@ -44,7 +44,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
@@ -96,7 +96,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
@@ -140,7 +140,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
@@ -191,7 +191,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
@@ -244,7 +244,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
@@ -281,7 +281,7 @@ program
   .option(
     "-t, --timeout <number>",
     "Timeout in milliseconds",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1000
   )
   .action(async (opts) => {
@@ -314,7 +314,7 @@ program
   .option(
     "-t, --timeout <number>",
     "Timeout in milliseconds",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1000
   )
   .action(async (broadcast: string, opts) => {
@@ -363,13 +363,13 @@ program
   .option(
     "--chunk <number>",
     "Registers to read per request (max ~40 is safe)",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     10
   )
   .option(
     "--delay <number>",
     "Delay between requests in milliseconds",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     500
   )
   .option("--all", "Show all registers including zeros", false)
@@ -377,7 +377,7 @@ program
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
-    parseInt,
+    (v: string) => parseInt(v, 10),
     1
   )
   .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
