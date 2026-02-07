@@ -40,14 +40,14 @@ program
     "Number of registers to read",
     parseInt
   )
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
@@ -92,14 +92,14 @@ program
     "Number of registers to read",
     parseInt
   )
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
@@ -136,14 +136,14 @@ program
   )
   .requiredOption("-r, --register <number>", "Register address", parseInt)
   .requiredOption("-V, --value <number>", "Value to write", parseInt)
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
@@ -187,14 +187,14 @@ program
     "--values <numbers...>",
     "Values to write (space separated)"
   )
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
@@ -240,14 +240,14 @@ program
     "Number of coils to read",
     parseInt
   )
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
@@ -373,14 +373,14 @@ program
     500
   )
   .option("--all", "Show all registers including zeros", false)
-  .option("-p, --port <number>", "TCP port", parseInt, 8899)
+  .option("-p, --port <number>", "TCP port", (v: string) => parseInt(v, 10), 8899)
   .option(
     "-m, --mb-slave-id <number>",
     "Modbus slave ID",
     parseInt,
     1
   )
-  .option("-t, --timeout <number>", "Socket timeout in seconds", parseInt, 60)
+  .option("-t, --timeout <number>", "Socket timeout in seconds", (v: string) => parseInt(v, 10), 60)
   .option("-v, --verbose", "Enable verbose logging", false)
   .action(async (opts) => {
     const modbus = new SolarmanV5(opts.address, opts.serial, {
